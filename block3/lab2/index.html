@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = 'utf-8'>
+    <script type = text/javascript>
+      function readServerString (url, callback) {
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+          if (req.readyState == 4) {
+            if (req.status == 200) {
+              callback (undefined, req.responseText)
+            }
+            else {
+              callback (new Error(req.status));
+            }
+          }
+        }
+        req.open ('POST', url, true)
+        req.setRequestHeader ("Content-Type", "application/x-www-form-urlencoded");
+        req.send();  		
+      }
+      function call1 (color) {
+        readServerString ("/call1?color="+color, function (err, response) {
+          if (!err) {
+            document.getElementById ("call_res").innerHTML = response;
+          }
+          else {
+            document.getElementById ("call_res").innerHTML = "<span style = 'color:red'>" + err + "</span>";
+          }
+        });
+      } 	
+      function call2 () {
+        readServerString ("/call2", function (err, response) {
+          if (!err) {
+            document.getElementById ("call_res").innerHTML = response;
+          }
+          else {
+            document.getElementById ("call_res").innerHTML = "<span style = 'color:red'>" + err + "</span>";
+          }
+        });
+      } 
+    </script>
+  </head>
+<body>
+  <input type="text" id="search" value="Search by color" onFocus="this.value=''; document.getElementById('resultdiv').style.display='none';"/>
+  <input type="button" value="Search" onClick="call1(document.getElementById('search').value);"/>
+  <input type="button" value="Get all" onClick="call2();"/>
+  <p>
+    <span id = "call_res"></span>
+  </p> 
+ </body>
+</html>

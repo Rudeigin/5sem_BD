@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/home/witord/eclipse/java-photon/eclipse/h2.jar"/>
+	<classpathentry kind="lib" path="/home/witord/eclipse/java-photon/eclipselink/jlib/eclipselink.jar"/>
+	<classpathentry kind="lib" path="/home/witord/eclipse/java-photon/eclipselink/jlib/jpa/javax.persistence_2.2.1.v201807122140.jar"/>
+	<classpathentry kind="lib" path="/home/witord/eclipse/java-photon/ormlite-jdbc-5.1.jar"/>
+	<classpathentry kind="lib" path="/home/witord/eclipse/java-photon/ormlite-core-5.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
